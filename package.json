@@ -1,0 +1,40 @@
+{
+  "name": "react-web-scraper",
+  "version": "0.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "./node_modules/.bin/concurrently \"cd node_modules/.bin && nodemon ../../server.js\" \"cd client && npm run start\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd client && yarn install",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "connect-flash-plus": "^0.2.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.1",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "http-errors": "~1.6.2",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.2.5",
+    "morgan": "~1.9.0",
+    "npm": "^6.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "react-router-dom": "^4.3.1",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1"
+  }
+}
