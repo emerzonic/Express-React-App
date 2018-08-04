@@ -6,27 +6,25 @@ class Articles extends Component {
   constructor(props) {
       super(props);
       this.handleSubmit = e =>{
-        e.preventDefault()
+        e.preventDefault();
         let article = {
           img: e.target.img.value,
-          title: e.target.title.value,
+          headline: e.target.headline.value,
           body: e.target.body.value,
           date: e.target.date.value,
           link: e.target.link.value
-      }
+      };
   
       this.props.handleSave(article)
       }
-      
     }
-
       render() { 
         return (
                 <div className="ui segment">
                 <h3>{this.props.info}</h3>
                 <div className="ui divider"></div>
                 <div className="ui divided items">
-                {this.props.articles.map((article,i) =>
+                {this.props.articles.length > 0?this.props.articles.map((article,i) =>
                   <div className="item" key={i}>
                     <div className="image">
                       <img src={"https://www.nytimes.com/"+article.multimedia[0].url} alt="article"/>
@@ -42,7 +40,7 @@ class Articles extends Component {
                       <div className="extra">
                           <form id={i} onSubmit={this.handleSubmit}>
                             <input type="hidden" name="img" value={"https://www.nytimes.com/"+article.multimedia[0].url} />
-                            <input type="hidden" name="title" value={article.headline.print_headline} />
+                            <input type="hidden" name="headline" value={article.headline.print_headline} />
                             <input type="hidden" name="date" value={article.pub_date}/>
                             <input type="hidden" name="body" value={article.snippet}/>
                             <input type="hidden" name="link" value={article.web_url}/>
@@ -52,7 +50,7 @@ class Articles extends Component {
                         </div>
                       </div>
                     </div>
-                  )}
+                  ):""}
                 </div>  
                 </div>  
                 );

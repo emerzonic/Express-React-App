@@ -1,0 +1,14 @@
+.ui.menu {
+    font-size: 1.5rem;
+}
+
+
+.home-container .ui.segment, .ui.segments .segment {
+    font-size: 2rem;
+    padding: 15%; 
+}
+
+.home-container h1 {
+    min-height: 1rem;
+    font-size: 4rem;
+}

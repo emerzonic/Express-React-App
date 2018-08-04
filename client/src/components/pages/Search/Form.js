@@ -30,14 +30,27 @@ class Form extends Component {
                      <label>Date Range</label>
                         <div className="two fields">
                             <div className="field">
-                                <input type="date" name="start_date" placeholder="Start date" ref="start_date"/>
+                                <div className="ui labeled input">
+                                    <div className="ui label">
+                                         Start Date
+                                    </div>
+                                    <input type="date" name="start_date" placeholder="1900/01/01" ref="start_date"/>
+                                </div>
                             </div>
                             <div className="field">
-                                <input type="date" name="end_date" placeholder="End date" ref="end_date"/>
+                            <div className="ui labeled input">
+                            <div className="ui label">
+                                 End Date
+                            </div>
+                            <input type="date" name="end_date" placeholder="1900/01/01" ref="end_date"/>
+                        </div>
                             </div>
                         </div>
                 </div>
-                <button className="ui button" type="submit" tabIndex="0">Submit</button>
+                <button type="submit" className="ui labeled icon button" tabIndex="0">
+                <i className="search icon"></i>
+                Search
+                </button>
             </form>
         </div> 
      );

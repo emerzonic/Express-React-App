@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var articleSchema = new mongoose.Schema({
-  'title': { type: String },
+  'headline': { type: String },
   'body': { type: String },
   'link': { type: String },
   'img': { type: String },

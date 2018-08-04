@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import './save.css';
 
-class Articles extends Component {
+class SavedArticles extends Component {
   constructor(props) {
       super(props);   
       this.handleSubmit = e =>{
@@ -17,7 +17,7 @@ class Articles extends Component {
             <div className="ui segment">
                 <h3>{this.props.info}</h3>
                 <div className="ui divided items">
-                {this.props.articles.map((article) =>
+                {this.props.articles.length > 0 ? this.props.articles.map(article =>
                 <div className="item" key={article._id}>
                     <div className="image">
                         <img src={article.img} alt="article"/>
@@ -39,11 +39,11 @@ class Articles extends Component {
                         </div>
                     </div>
                     </div>
-                )}
+                ):""}
                 </div>  
                 </div>  
             )
         }
 }
 
-export default Articles;
+export default SavedArticles;

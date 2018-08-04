@@ -17,7 +17,7 @@ class  Home extends Component {
         return (
             <div>
                 <Nav/>
-                    <div className="ui container">
+                    <div className="ui container home-container">
                         <Header/>
                     </div>
                 <Footer/>

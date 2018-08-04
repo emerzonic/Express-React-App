@@ -1,5 +1,7 @@
 import React from 'react';
-import { Component } from 'react';
+import {
+    Component
+} from 'react';
 import Nav from "../Home/Nav";
 import Header from "../Home/Header";
 import SavedArticles from "./SavedArticles";
@@ -8,43 +10,52 @@ import API from "../../../API/request";
 import './save.css';
 
 
-class  Saved extends Component {
+class Saved extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            articles:[]
-         }
+        this.state = {
+            articles: []
+        }
 
-         this.handleDelete = articleId =>{
-            API.deleteArticle(articleId); 
-            this.getArticles();               
-            }
+        this.handleDelete = articleId => {
+            API.deleteArticle(articleId)
+                .then(() => {
+                    this.getArticles()
+                })
+        }
     }
 
     componentDidMount() {
-        this.getArticles();  
-      }
-    
-      getArticles = () => {
-        API.getSavedArticles()
-          .then(res => this.setState({ articles: res.data}))
-          .catch(err => console.log(err));
-      };
-
-    render() { 
-        return ( 
-            <div>
-                <Nav/>
-                <div className="ui container">
-                    <Header/>
-                    <SavedArticles articles={this.state.articles} handleDelete={this.handleDelete} info={this.state.articles.length > 0?
-                        "Your Saved Articles.":
-                        "You do not have any saved articles."}/>
-                </div>
-                <Footer/>
-            </div>
-         );
-        }
+        console.log( 'componentDidMount');
+        this.getArticles();
     }
- 
+
+    getArticles = () => {
+        console.log(this.state.articles.length);
+        API.getSavedArticles()
+            .then(res => {
+                this.setState({
+                    articles: res.data
+                })
+                console.log(this.state.articles.length);
+            })
+            .catch(err => console.log(err));
+    };
+
+    render() {
+        return (
+            <div>
+            <Nav/>
+            <div className="ui container">
+                <Header/>
+                <SavedArticles articles={this.state.articles} handleDelete={this.handleDelete} info={this.state.articles.length > 0?
+                    "Your Saved Articles.":
+                    "You do not have any saved articles."}/>
+            </div>
+            <Footer/>
+        </div>
+        );
+    }
+}
+
 export default Saved;

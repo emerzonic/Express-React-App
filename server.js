@@ -1,14 +1,17 @@
+require('dotenv').config();
 const express = require("express"),
-LocalStrategy = require("passport-local"),
+
+// LocalStrategy = require("passport-local"),
   bodyParser = require('body-parser'),
-  path = require("path"),
+  // path = require("path"),
   // articles = require('./routes/articles'),
   mongoose = require('mongoose'),
   // passport = require('passport'),
-  flash = require('connect-flash-plus');
+  // flash = require('connect-flash-plus'),
   // notes = require('./routes/notes'),
-  index = require('./routes/index');
+  index = require('./routes/index'),
   // User = require('./models/User');
+  cors = require('cors');
 
 const app = express();
 
@@ -29,7 +32,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.use(flash());
+// app.use(flash());
+app.use(cors());
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
@@ -42,15 +46,14 @@ app.use(require("express-session")({
 // passport.use(new LocalStrategy(User.authenticate()));
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
-
 //Track the current user
-app.use(function (req, res, next) {
-  res.locals.currentUser = req.user;
-  res.locals.info = req.flash("info");
-  res.locals.error = req.flash("error");
-  res.locals.success = req.flash("success");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.currentUser = req.user;
+//   res.locals.info = req.flash("info");
+//   res.locals.error = req.flash("error");
+//   res.locals.success = req.flash("success");
+//   next();
+// });
 
 //Set up app to use routes
 // app.use(articles);

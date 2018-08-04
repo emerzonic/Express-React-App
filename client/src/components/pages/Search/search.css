@@ -1,0 +1,9 @@
+.searchContainer .ui.segment {
+    background: rgb(233, 232, 232);
+    padding: 2em 2em;
+}
+
+
+input{
+    border-radius: 50%;
+}

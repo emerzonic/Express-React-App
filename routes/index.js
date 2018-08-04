@@ -1,42 +1,40 @@
 var express = require('express');
 var router = express.Router();
-var webScrapper = require('../scrape');
+var request = require('request');
 var Article = require('../models/Article');
-// var middleware = require('../middleware/index');
+
 
 //==============================================
-//Route to scrap web page
+//Route to get NYT articles via API
 //==============================================
-router.get('/', function (req, res) {
-  // webScrapper(function (err, data) {
-  //     if (err) {
-  //         console.log(err);
-  //     } else {
-          res.send('It is working');
-      })
-//   });
-// });
+router.get('/API/search/:term/:start/:end', function (req, res) {
+    var params = {
+        'api-key': process.env.REACT_APP_NYT_KEY,
+        'q': req.params.term,
+        'start_date': req.params.start,
+        'end_date': req.params.end
+    }
+    request.get({
+        url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+        qs: params,
+    }, function (err, response, body) {
+        body = JSON.parse(body);
+        res.json(body);
+    });
+});
 
 
 //==============================================
 //Route to add/save news article to user
 //==============================================
 router.post('/save_articles', function (req, res) {
-    // User.findById(req.user._id, function (err, user) {
-        // if (err) {
-        //     console.log(err);
-        // } else {
-            Article.create(req.body, function (err, article) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    // user.articles.push(article);
-                    // user.save();
-                    res.end();
-                }
-            });
-        
-    // });
+    Article.create(req.body, function (err, article) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.end();
+        }
+    });
 });
 
 
@@ -48,13 +46,7 @@ router.get("/articles/saved", function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            if (articles.length < 1) {
-                console.log("no articles");
-                // req.flash("info","You do not have any saved articles at this time.");
-                // res.redirect("/scrape_articles");
-            } else {
-                res.json(articles)
-            }
+            res.json(articles)
         }
     });
 });
@@ -65,12 +57,12 @@ router.get("/articles/saved", function (req, res) {
 // ==============================================
 // Route to delete an article
 // ==============================================
-router.delete('/:id',function (req, res) {
+router.delete('/:id', function (req, res) {
     Article.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
             console.log(err);
         } else {
-            res.redirect('/');
+            res.end();
         }
     });
 });

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Component } from 'react';
+import {
+    Component
+} from 'react';
 import Nav from "../Home/Nav";
 import Header from "../Home/Header";
 import Footer from "../Home/Footer";
@@ -13,34 +15,50 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            articles : []
+            articles: []
         }
 
-    this.handleSubmit = (data)=>{
-      API.getArticles(data).then(res => {
-        this.setState({
-            articles : res.data.response.docs
-        });
-      })
-    }
-    this.handleSave = article=>{
-        API.saveArticle(article);
+        //Fires when the search form is submitted
+        this.handleSubmit = (data) => {
+            //Takes the submitted data and pass it over to the API module
+            API.searchArticles(data).then(res => {
+                // Set the state with the results from the search
+                this.setState({
+                    articles: res.data.response.docs
+                });
+            })
+        }
+
+        //Fires when an article is saved to the database
+        this.handleSave = savedArticle => {
+            //Takes the article and pass it over to the API module
+            API.saveArticle(savedArticle).then(() => {
+                //Filter the current articles list and remove any article that matches the title of the saved article
+                let remainingArticles = this.state.articles.filter(article => 
+                    article.headline.print_headline !== savedArticle.headline);
+                //Set the state to the remaining articles in the array
+                this.setState({
+                    articles: remainingArticles
+                });
+            })
         }
     }
 
-    render() { 
+    render() {
         return (
             <div>
-            <Nav/>
-            <div className="ui container">
-                <Header/>
-                <Form handleSubmit={this.handleSubmit}/>
-                <Articles articles={this.state.articles} handleSave={this.handleSave} info={this.state.articles.length > 0?"Your Search Results ":"Search an article to get started!"}/>
+                <Nav/>
+                <div className="ui container searchContainer">
+                    <Header/>
+                    <Form handleSubmit={this.handleSubmit}/>
+                    <Articles articles={this.state.articles} handleSave={this.handleSave} 
+                        info={this.state.articles.length > 0?
+                            "Your Search Results ":"Search an article to get started!"}/>
+                </div>
+                <Footer/>
             </div>
-            <Footer/>
-        </div>);
+        );
     }
 }
- 
- 
+
 export default Search;
