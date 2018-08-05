@@ -5,44 +5,45 @@ var router = express.Router();
 
 
 //=======================
-//Auth ROUTES - User signup
+//User signup rouute
 //=======================
-router.post("/signup", function (req, res) {
+router.post("/signup", (req, res) => {
     var newUser = new User({
         fullName: req.body.firstName,
         username: req.body.username,
     });
-    User.register(newUser, req.body.password, function (err, user) {
+    User.register(newUser, req.body.password, (err, user) => {
         if (err) {
-            res.json({'err':err.message})
-           
-            // req.flash("error", err.message);
-            // return res.redirect("/signup");
+            res.json({
+                'err': err.message
+            })
         } else {
-            passport.authenticate("local")(req, res, function () {
-                // console.log(req.headers)
-                // req.flash("info","Click the Get Articles link to view articles.");
-                res.json({_id:req.user._id, username:req.user.username});
+            passport.authenticate("local")(req, res, () => {
+                res.json({
+                    _id: req.user._id,
+                    username: req.user.username
+                });
             });
         }
     });
 });
 
 //==============================================
-////Auth ROUTES - user signin
+//Sign In Route
 //==============================================
-router.post("/signin", passport.authenticate("local"), function(req, res) {
-    res.json({_id:req.user._id, username:req.user.username});
-
+router.post("/signin", passport.authenticate("local"), (req, res) => {
+    res.json({
+        _id: req.user._id,
+        username: req.user.username
+    });
 });
 
 //==============================================
 //Logout route
 //==============================================
-router.get("/logout", function (req, res) {
+router.get("/logout", (req, res) => {
     req.logout();
-    // req.flash("success", "You are signed out!");
-    res.redirect("/signin");
+    res.end();
 });
 
 

@@ -9,9 +9,9 @@ var key = process.env.REACT_APP_NYT_KEY;
 //==============================================
 //Route to get NYT articles via API
 //==============================================
-router.get('/API/search/:term/:start/:end', function (req, res) {
+router.get('/API/search/:term/:start/:end', (req, res) => {
     var params = {
-        'api-key':key,
+        'api-key': key,
         'q': req.params.term,
         'start_date': req.params.start,
         'end_date': req.params.end
@@ -19,7 +19,7 @@ router.get('/API/search/:term/:start/:end', function (req, res) {
     request.get({
         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
         qs: params,
-    }, function (err, response, body) {
+    }, (err, response, body) => {
         body = JSON.parse(body);
         res.json(body);
     });
@@ -29,11 +29,10 @@ router.get('/API/search/:term/:start/:end', function (req, res) {
 //==============================================
 //Route to add/save news article to user
 //==============================================
-router.post('/save_articles/:userId', function (req, res) {
-    User.findById(req.params.userId, function (err, user) {
-        if (err) {
-        } else {
-            Article.create(req.body, function (err, article) {
+router.post('/save_articles/:userId', (req, res) => {
+    User.findById(req.params.userId, (err, user) => {
+        if (err) {} else {
+            Article.create(req.body, (err, article) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -48,10 +47,10 @@ router.post('/save_articles/:userId', function (req, res) {
 
 
 // ==============================================
-// Route to get all saved articles
+// Route to get all user saved articles
 // ==============================================
-router.get("/articles/saved/:userId", function (req, res) {
-    User.findById(req.params.userId).populate('articles').exec(function(err, user){
+router.get("/articles/saved/:userId", (req, res) => {
+    User.findById(req.params.userId).populate('articles').exec((err, user) => {
         if (err) {
             console.log(err);
         } else {
@@ -64,8 +63,8 @@ router.get("/articles/saved/:userId", function (req, res) {
 // ==============================================
 // Route to delete an article
 // ==============================================
-router.delete('/:id', function (req, res) {
-    Article.findByIdAndRemove(req.params.id, function (err) {
+router.delete('/:id', (req, res) => {
+    Article.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
             console.log(err);
         } else {

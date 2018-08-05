@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./components/pages/Home/Home";
 import User from "./components/pages/Home/User";
-// import SignUp from "./components/pages/Home/Sign-up";
 import Search from "./components/pages/Search/Search";
 import Saved from "./components/pages/Saved/Saved";
+import Signout from "./components/pages/Home/Sign-out";
 
 
 const App = () => (
@@ -15,6 +15,7 @@ const App = () => (
       <Route exact path="/saved" component={Saved} />
       <Route exact path="/signin" component={User}/>
       <Route exact path="/signup" component={User}/>
+      <Route exact path="/sigout" component={Signout}/>
     </div>
   </Router>
 );
