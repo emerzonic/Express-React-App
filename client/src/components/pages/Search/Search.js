@@ -10,12 +10,11 @@ import Articles from "./Articles";
 import API from "../../../API/request";
 import './search.css';
 
-
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            articles: []
+            articles: [],
         }
 
         //Fires when the search form is submitted
@@ -53,9 +52,11 @@ class Search extends Component {
                 <div className="ui container searchContainer">
                     <Header/>
                     <Form handleSubmit={this.handleSubmit}/>
-                    <Articles articles={this.state.articles} handleSave={this.handleSave} 
-                        info={this.state.articles.length > 0?
-                            "Your Search Results ":"Search an article to get started!"
+                    <Articles articles={this.state.articles} 
+                              handleSave={this.handleSave} 
+                              saveMessage = {this.saveMessage}
+                              info={this.state.articles.length > 0?
+                            "Your Search Results.":"Search an article to get started!"
                     }/>
                 </div>
                 <Footer/>

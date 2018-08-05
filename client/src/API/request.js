@@ -3,7 +3,6 @@ import formatter from './formatter';
 
 
 export default {
-
   // Send a new user data to the database
   sendNewUserData: function (newUser) {
     return axios.post('/signup', newUser);

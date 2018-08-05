@@ -9,7 +9,6 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import './home.css';
 
-
 class User extends Component {
     constructor(props) {
         super(props);
