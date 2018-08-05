@@ -45,10 +45,10 @@ class User extends Component {
 
         //Fires when the search form is submitted
         this.handleUserSignin = (preciousUser) => {
-            console.log(preciousUser)
             // Takes the submitted data and pass it over to the API module
             API.sendPreviousUserData(preciousUser).then(res => {
                if(res.data.username){
+                console.log(res.data.username)
             localStorage.setItem('user',res.data.username)
             localStorage.setItem('id',res.data._id)
             // Set the state with the results from the search

@@ -4,16 +4,16 @@ import formatter from './formatter';
 
 export default {
 
-   // Send a new user data to the database
-   sendNewUserData: function (newUser) {
+  // Send a new user data to the database
+  sendNewUserData: function (newUser) {
     return axios.post('/signup', newUser);
   },
 
-    // Send a user login data to the database
-    sendPreviousUserData: function (previousUser) {
-      return axios.post('/signin', previousUser);
-    },
-    
+  // Send a user login data to the database
+  sendPreviousUserData: function (previousUser) {
+    return axios.post('/signin', previousUser);
+  },
+
   // Gets articles from the NYT API
   searchArticles: function (data) {
     let q = formatter(data).q;
@@ -29,7 +29,7 @@ export default {
 
   // Saves an article to the database
   saveArticle: function (article, userId) {
-    return axios.post('/save_articles/'+ userId , article);
+    return axios.post('/save_articles/' + userId, article);
   },
 
   // Deletes the saved article with the given id
