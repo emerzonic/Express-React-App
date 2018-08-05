@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './home.css';
 
 
-const Nav = props => (
+const Nav = () => (
     
     <div className="ui inverted secondary pointing menu">
         <div className="ui container">
