@@ -55,6 +55,7 @@ class Saved extends Component {
                         "You do not have any saved articles."
                     }/>
             </div>
+            <div className='spacer'></div>
             <Footer/>
         </div>
         );

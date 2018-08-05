@@ -6,6 +6,7 @@ class Articles extends Component {
       super(props);
       this.handleSubmit = e =>{
         e.preventDefault();
+        //Save article data to a variable
         let article = {
           img: e.target.img.value,
           headline: e.target.headline.value,
@@ -13,12 +14,13 @@ class Articles extends Component {
           date: e.target.date.value,
           link: e.target.link.value
       };
-  
+      //Pass the article over to the Search component
       this.props.handleSave(article);
       }
     }
 
       render() {
+        //Get current state of the articles and current user
         let loadedArticle = this.props.articles;
         let currentUser = localStorage.getItem('user');
         return (

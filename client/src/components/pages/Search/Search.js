@@ -31,8 +31,9 @@ class Search extends Component {
 
         //Fires when an article is saved to the database
         this.handleSave = savedArticle => {
+            //Get the current user from local storage
             let userid = localStorage.getItem('id')
-            //Takes the article and pass it over to the API module
+            //Takes the article ans userid and pass it over to the API module
             API.saveArticle(savedArticle, userid).then(() => {
                 //Filter the current articles list and remove any article that matches the title of the saved article
                 let remainingArticles = this.state.articles.filter(article => 
@@ -54,11 +55,11 @@ class Search extends Component {
                     <Form handleSubmit={this.handleSubmit}/>
                     <Articles articles={this.state.articles} 
                               handleSave={this.handleSave} 
-                              saveMessage = {this.saveMessage}
                               info={this.state.articles.length > 0?
-                            "Your Search Results.":"Search an article to get started!"
-                    }/>
+                            "Your Search Results.":"Search an article to get started!"}
+                    />
                 </div>
+                <div className='spacer'></div>
                 <Footer/>
             </div>
         );
