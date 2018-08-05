@@ -5,7 +5,7 @@ import './home.css';
 
 const Nav = () => (
     
-    <div className="ui inverted secondary pointing menu">
+    <div className="ui inverted secondary pointing stackable menu">
         <div className="ui container">
             <Link  className="ui item" to={"/"}>Home</Link>
             <div className="right menu">
