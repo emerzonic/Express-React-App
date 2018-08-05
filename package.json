@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
+    "server:dev": "nodemon server.js",
     "client": "cd client && npm run start",
-    "start": "./node_modules/.bin/concurrently \"cd node_modules/.bin && nodemon ../../server.js\" \"cd client && npm run start\"",
+    "start": "./node_modules/.bin/concurrently \"cd node_modules/.bin && npm run server:dev\" \"cd client && npm run start\"",
     "build": "cd client && npm run build",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,6 +33,7 @@
     "npm": "^6.3.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
     "react-router-dom": "^4.3.1",
     "request": "^2.87.0"

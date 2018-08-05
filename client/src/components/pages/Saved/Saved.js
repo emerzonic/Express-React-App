@@ -17,6 +17,7 @@ class Saved extends Component {
             articles: []
         }
 
+
         this.handleDelete = articleId => {
             API.deleteArticle(articleId)
                 .then(() => {
@@ -26,18 +27,16 @@ class Saved extends Component {
     }
 
     componentDidMount() {
-        console.log( 'componentDidMount');
         this.getArticles();
     }
 
     getArticles = () => {
-        console.log(this.state.articles.length);
-        API.getSavedArticles()
+        let userid = localStorage.getItem('id')
+        API.getSavedArticles(userid)
             .then(res => {
                 this.setState({
                     articles: res.data
                 })
-                console.log(this.state.articles.length);
             })
             .catch(err => console.log(err));
     };
@@ -48,9 +47,13 @@ class Saved extends Component {
             <Nav/>
             <div className="ui container">
                 <Header/>
-                <SavedArticles articles={this.state.articles} handleDelete={this.handleDelete} info={this.state.articles.length > 0?
-                    "Your Saved Articles.":
-                    "You do not have any saved articles."}/>
+                <SavedArticles 
+                    articles={this.state.articles} 
+                    handleDelete={this.handleDelete} 
+                    info={this.state.articles.length > 0?
+                        "Your Saved Articles.":
+                        "You do not have any saved articles."
+                    }/>
             </div>
             <Footer/>
         </div>

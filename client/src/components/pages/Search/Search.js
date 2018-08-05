@@ -22,17 +22,19 @@ class Search extends Component {
         this.handleSubmit = (data) => {
             //Takes the submitted data and pass it over to the API module
             API.searchArticles(data).then(res => {
+                if(res.data.response.docs){
                 // Set the state with the results from the search
                 this.setState({
                     articles: res.data.response.docs
-                });
+                })}
             })
         }
 
         //Fires when an article is saved to the database
         this.handleSave = savedArticle => {
+            let userid = localStorage.getItem('id')
             //Takes the article and pass it over to the API module
-            API.saveArticle(savedArticle).then(() => {
+            API.saveArticle(savedArticle, userid).then(() => {
                 //Filter the current articles list and remove any article that matches the title of the saved article
                 let remainingArticles = this.state.articles.filter(article => 
                     article.headline.print_headline !== savedArticle.headline);
@@ -53,7 +55,8 @@ class Search extends Component {
                     <Form handleSubmit={this.handleSubmit}/>
                     <Articles articles={this.state.articles} handleSave={this.handleSave} 
                         info={this.state.articles.length > 0?
-                            "Your Search Results ":"Search an article to get started!"}/>
+                            "Your Search Results ":"Search an article to get started!"
+                    }/>
                 </div>
                 <Footer/>
             </div>

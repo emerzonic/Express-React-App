@@ -6,7 +6,6 @@ var articleSchema = new mongoose.Schema({
   'link': { type: String },
   'img': { type: String },
   'date': { type: Date},
-  // 'writer': { type: String },
   'createdAt': { type: Date, default: Date.now },
   'updatedAt': { type: Date, default: Date.now },
 });

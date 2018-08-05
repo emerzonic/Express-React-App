@@ -1,20 +1,15 @@
 require('dotenv').config();
 const express = require("express"),
-
-// LocalStrategy = require("passport-local"),
+LocalStrategy = require("passport-local"),
   bodyParser = require('body-parser'),
-  // path = require("path"),
-  // articles = require('./routes/articles'),
+  articles = require('./routes/articles'),
   mongoose = require('mongoose'),
-  // passport = require('passport'),
-  // flash = require('connect-flash-plus'),
-  // notes = require('./routes/notes'),
-  index = require('./routes/index'),
-  // User = require('./models/User');
+  passport = require('passport'),
+  user = require('./routes/user'),
+  User = require('./models/User');
   cors = require('cors');
 
 const app = express();
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -41,26 +36,23 @@ app.use(require("express-session")({
   resave: false,
   saveUninitialized: true
 }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 //Track the current user
-// app.use(function (req, res, next) {
-//   res.locals.currentUser = req.user;
-//   res.locals.info = req.flash("info");
-//   res.locals.error = req.flash("error");
-//   res.locals.success = req.flash("success");
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  // res.locals.info = req.flash("info");
+  // res.locals.error = req.flash("error");
+  // res.locals.success = req.flash("success");
+  next();
+});
 
 //Set up app to use routes
-// app.use(articles);
-// app.use(notes);
-app.use(index);
-
-
+app.use(articles);
+app.use(user);
 
 // App PORT setting
 const PORT = process.env.PORT || 3001;

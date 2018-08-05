@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var Article = require('../models/Article');
+var User = require('../models/User');
+var key = process.env.REACT_APP_NYT_KEY;
 
 
 //==============================================
@@ -9,7 +11,7 @@ var Article = require('../models/Article');
 //==============================================
 router.get('/API/search/:term/:start/:end', function (req, res) {
     var params = {
-        'api-key': process.env.REACT_APP_NYT_KEY,
+        'api-key':key,
         'q': req.params.term,
         'start_date': req.params.start,
         'end_date': req.params.end
@@ -27,12 +29,19 @@ router.get('/API/search/:term/:start/:end', function (req, res) {
 //==============================================
 //Route to add/save news article to user
 //==============================================
-router.post('/save_articles', function (req, res) {
-    Article.create(req.body, function (err, article) {
+router.post('/save_articles/:userId', function (req, res) {
+    User.findById(req.params.userId, function (err, user) {
         if (err) {
-            console.log(err);
         } else {
-            res.end();
+            Article.create(req.body, function (err, article) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    user.articles.push(article);
+                    user.save();
+                    res.end();
+                }
+            });
         }
     });
 });
@@ -41,17 +50,15 @@ router.post('/save_articles', function (req, res) {
 // ==============================================
 // Route to get all saved articles
 // ==============================================
-router.get("/articles/saved", function (req, res) {
-    Article.find({}, function (err, articles) {
+router.get("/articles/saved/:userId", function (req, res) {
+    User.findById(req.params.userId).populate('articles').exec(function(err, user){
         if (err) {
             console.log(err);
         } else {
-            res.json(articles)
+            res.json(user.articles)
         }
     });
 });
-
-
 
 
 // ==============================================
