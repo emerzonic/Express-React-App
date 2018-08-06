@@ -33,11 +33,15 @@ class SignUP extends Component {
               </div>
             <div className="field">
             <label>Username</label>
-            <input type="text" name="username" placeholder="Username" ref="username"/>
-          </div>
+                <div className="ui icon input"> <i class="user icon"></i>
+                <input name="username" placeholder="username" type="text" autocomplete="off"/>
+                </div>
+            </div>
               <div className="field">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Password" ref="password"/>
+                <div className="ui icon input"><i className="lock icon"></i>
+              <input type="password" name="password" placeholder="Password"/>
+            </div>
               </div>
             <button type="submit" className="ui orange button">Submit</button>
           </form>
