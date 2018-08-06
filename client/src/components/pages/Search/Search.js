@@ -31,16 +31,16 @@ class Search extends Component {
             })
         }
 
-        //Fires when an article is saved to the database
+        //Fires when a user saves article to the database
         this.handleSave = savedArticle => {
             //Get the current user from local storage
             let userid = localStorage.getItem('id')
-            //Takes the article ans userid and pass it over to the API module
+            //Takes the article and current user id and pass it over to the API module
             API.saveArticle(savedArticle, userid).then(() => {
-                //Filter the current articles list and remove any article that matches the title of the saved article
+                //After save is completed, filter the current articles list and leave out any article that matches the title of the saved article
                 let remainingArticles = this.state.articles.filter(article => 
                     article.headline.print_headline !== savedArticle.headline);
-                //Set the state to the remaining articles in the array
+                //Set the state to the new list of articles
                 this.setState({
                     articles: remainingArticles
                 });

@@ -4,7 +4,6 @@ var request = require('request');
 var Article = require('../models/Article');
 var User = require('../models/User');
 var key = process.env.REACT_APP_NYT_KEY;
-console.log('server line 7 key  ' + key)
 
 
 
@@ -12,7 +11,6 @@ console.log('server line 7 key  ' + key)
 //Route to get NYT articles via API
 //==============================================
 router.get('/API/search/:term/:start/:end', (req, res) => {
-    console.log('server line 15 key  ' + key)
     var params = {
         'api-key': key,
         'q': req.params.term,

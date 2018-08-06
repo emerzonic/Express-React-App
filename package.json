@@ -19,7 +19,6 @@
     "ajv": "^6.5.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "cheerio": "^1.0.0-rc.2",
     "concurrently": "^3.6.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
