@@ -21,7 +21,7 @@ class Search extends Component {
         this.handleSubmit = (data) => {
             //Takes the submitted data and pass it over to the API module
             API.searchArticles(data).then(res => {
-                if(res.data){
+                if(res.data.response){
                 // Set the state with the results from the search
                 this.setState({
                     articles: res.data.response.docs
