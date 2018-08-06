@@ -52,3 +52,7 @@
 .actions> .ui.button {
     margin-top:1rem;
 }
+
+p:first-child {
+    font-size: 1rem;
+}
