@@ -1,3 +1,27 @@
 .spacer{
     height: 90px;
 }
+
+.save-container >.ui.segment {
+    background: rgb(233, 232, 232);
+    padding: 2em 2em;
+}
+
+.save-container h1{
+    color:rgb(100, 96, 96);
+    font-size:3rem
+}
+
+
+.save-container h2{
+    color:rgb(100, 96, 96);
+    font-size:1.5rem;
+    margin:0;
+}
+
+
+.save-container h3{
+    color:rgb(100, 96, 96);
+    font-size:1.2rem;
+    margin-top:1%;
+}

@@ -3,15 +3,45 @@
 }
 
 
-.home-container .ui.segment, .ui.segments .segment {
+.home-container> .ui.segment, .ui.segments .segment {
     font-size: 2rem;
     padding: 15%; 
+    background:transparent;
 }
 
 .home-container h1 {
     min-height: 1rem;
     font-size: 4rem;
+    color:orangered;
+}
+.home-container h2 {
+    min-height: 1rem;
+    font-size: 2rem;
+    color:rgb(236, 236, 235);
+}
+
+.home-container h3 {
+    font-size: 1.28571429rem;
+    margin-top: 0;
+    color:rgb(202, 198, 198);
+}
+
+.user-container> .ui.segment, .ui.segments .segment {
+    padding: 15%; 
 }
 
 
-/* "display: block !important; */
+.user-container h3{
+    font-size: 2rem;
+    color:rgb(128, 128, 126);
+}
+
+.ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=text] {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    border-radius: 50px;
+}
+
+
+.user-container> .ui.segment,{
+    background-color:red;
+}

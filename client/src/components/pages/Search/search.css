@@ -1,11 +1,42 @@
-.searchContainer .ui.segment {
+.searchContainer >.ui.segment {
     background: rgb(233, 232, 232);
     padding: 2em 2em;
 }
 
+.searchContainer h1{
+    color:rgb(100, 96, 96);
+    font-size:3rem
+}
 
-input{
-    border-radius: 50%;
+
+.searchContainer h2{
+    color:rgb(100, 96, 96);
+    font-size:1.5rem;
+    margin:0;
+}
+
+
+.searchContainer h3{
+    color:rgb(100, 96, 96);
+    font-size:1.2rem;
+    margin-top:1%;
+}
+
+.form-Segment input{
+    border-radius: 50px;
+}
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
+    border-radius: 50px;
+}
+
+.ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=text] {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    border-radius: 50px;
+}
+
+.ui.orange.button, .ui.orange.buttons .button {
+    border-radius: 50px;
 }
 
 

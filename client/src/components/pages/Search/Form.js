@@ -17,14 +17,17 @@ class Form extends Component {
     }
     render() { 
         return ( 
-            <div className="ui segment">
+            <div className="ui segment form-Segment">
             <form className="ui form" onSubmit={this.onSubmit}>
                 <h4 className="ui dividing header">Search Articles</h4>
                 <div className="field">
-                <label>Search Term</label>
-                       <div className="field">
-                           <input type="text" name="term" placeholder="Enter your search term" ref="term"/>
-                       </div>
+                     <label>Search Term</label>
+                    <div className="field">
+                        <div className="ui right action left icon input">
+                            <i className="search icon"></i>
+                            <input type="search" name="term" placeholder="Enter search term" ref="term"/>
+                        </div>
+                    </div>
                 </div>
                 <div className="field">
                      <label>Date Range</label>
@@ -47,10 +50,7 @@ class Form extends Component {
                             </div>
                         </div>
                 </div>
-                <button type="submit" className="ui labeled icon button" tabIndex="0">
-                <i className="search icon"></i>
-                Search
-                </button>
+                <button type="submit"  class="ui inverted orange button"> Submit</button>
             </form>
         </div> 
      );

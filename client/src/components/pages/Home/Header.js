@@ -4,14 +4,15 @@ import './home.css';
 
 const Header = () => (
     <div className="ui raised segment">
-        <h1>(ReactJS)  Newsopedia</h1>
-        <h3>The New York Times Article Scrubber.</h3>
-        <h3>Search for and save articles of interest.</h3>
+        <h1 ClassName="homeTitle">(ReactJS)  Newsopedia</h1>
+        <h2 ClassName="subTitle"> The New York Times Article Scrubber.</h2>
+        <h3 ClassName="headnotes">This is a MERN application built using MongoBD database, Express js for server side routing, React Js for client side rendering and Node js framework. Search for and save articles of interest.</h3>
+        <div className="ui inverted divider"></div>
         {localStorage.getItem('user')?
-        <Link className="massive ui brown button" to={"/signout"}>Sign Out</Link> :
+        <Link className="huge ui orange button" to={"/signout"}>Sign Out</Link> :
         <div>
-            <Link className="massive ui brown button" to={"/signin"}>Sign In</Link>
-            <Link className="massive ui inverted brown button" to={"/signup"}>Sign Up</Link>
+            <Link className="huge ui orange button" to={"/signin"}>Sign In</Link>
+            <Link className="huge ui inverted orange button" to={"/signup"}>Sign Up</Link>
         </div>}
     </div>
 );

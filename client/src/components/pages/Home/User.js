@@ -90,7 +90,7 @@ class User extends Component {
         return (
             <div>
             <Nav user={this.state.user.username}/>
-                <div className="ui container home-container">
+                <div className="ui container user-container">
                     {this.props.match.path === '/signin'?
                     <div className="ui segment">
                         <Login handleUserSignin={this.handleUserSignin}/>

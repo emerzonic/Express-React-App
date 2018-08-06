@@ -45,7 +45,7 @@ class Saved extends Component {
         return (
             <div>
             <Nav/>
-            <div className="ui container">
+            <div className="ui container save-container">
                 <Header/>
                 <SavedArticles 
                     articles={this.state.articles} 

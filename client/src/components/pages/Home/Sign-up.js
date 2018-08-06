@@ -39,7 +39,7 @@ class SignUP extends Component {
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Password" ref="password"/>
               </div>
-            <button type="submit" className="ui button">Submit</button>
+            <button type="submit" className="ui orange button">Submit</button>
           </form>
 
         );
