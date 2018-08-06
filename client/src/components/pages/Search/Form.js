@@ -25,7 +25,7 @@ class Form extends Component {
                     <div className="field">
                         <div className="ui right action left icon input">
                             <i className="search icon"></i>
-                            <input type="search" name="term" placeholder="Enter search term" ref="term"/>
+                            <input type="text" name="term" placeholder="Enter search term" ref="term"/>
                         </div>
                     </div>
                 </div>
