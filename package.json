@@ -16,6 +16,7 @@
     "server": "node server.js"
   },
   "dependencies": {
+    "ajv": "^6.5.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
@@ -37,7 +38,6 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
-    "react-router-dom": "^4.3.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
