@@ -34,7 +34,7 @@ class SavedArticles extends Component {
                         <form  onSubmit={this.handleSubmit}>
                             <input type="hidden" name="id" value={article._id} />
                         <button type="submit" className="ui inverted right floated red button">Delete</button>
-                        <a href={article.web_url} className="ui inverted right floated primary button" target="_blank" rel="noopener">Link</a>
+                        <a href={article.link} className="ui inverted right floated primary button" target="_blank" rel="noopener">Link</a>
                         </form>
                         </div>
                     </div>

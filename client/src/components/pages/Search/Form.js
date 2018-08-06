@@ -37,7 +37,7 @@ class Form extends Component {
                                     <div className="ui label">
                                          Start Date
                                     </div>
-                                    <input type="date" name="start_date" placeholder="1900/01/01" ref="start_date"/>
+                                    <input type="date" name="start_date" ref="start_date"/>
                                 </div>
                             </div>
                             <div className="field">
@@ -45,12 +45,12 @@ class Form extends Component {
                             <div className="ui label">
                                  End Date
                             </div>
-                            <input type="date" name="end_date" placeholder="1900/01/01" ref="end_date"/>
+                            <input type="date" name="end_date" ref="end_date"/>
                         </div>
                             </div>
                         </div>
                 </div>
-                <button type="submit"  class="ui inverted orange button"> Submit</button>
+                <button type="submit"  className="ui inverted orange button"> Submit</button>
             </form>
         </div> 
      );
