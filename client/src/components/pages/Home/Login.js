@@ -26,7 +26,7 @@ render() {
         <div className="field">
         <label>Username</label>
             <div className="ui icon input"> <i class="user icon"></i>
-            <input name="username" placeholder="username" type="text" autocomplete="off"/>
+            <input name="username" placeholder="Username" type="text" autocomplete="off"/>
             </div>
         </div>
           <div className="field">

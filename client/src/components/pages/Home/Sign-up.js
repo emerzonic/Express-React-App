@@ -29,12 +29,12 @@ class SignUP extends Component {
             <h3>Sign Up</h3>
               <div className="field">
                 <label>Full Name</label>
-                <input type="text" name="fullName"  placeholder="Ex. John Doe"  ref="fullName"/>
+                <input type="text" name="fullName"  placeholder="Ex. John Doe" autocomplete="off"/>
               </div>
             <div className="field">
             <label>Username</label>
                 <div className="ui icon input"> <i class="user icon"></i>
-                <input name="username" placeholder="username" type="text" autocomplete="off"/>
+                <input name="username" placeholder="Username" type="text" autocomplete="off"/>
                 </div>
             </div>
               <div className="field">
