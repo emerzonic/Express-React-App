@@ -25,8 +25,8 @@ render() {
         <div className="ui divider"></div>
         <div className="field">
         <label>Username</label>
-            <div className="ui icon input"> <i class="user icon"></i>
-            <input name="username" placeholder="Username" type="text" autocomplete="off"/>
+            <div className="ui icon input"> <i className="user icon"></i>
+            <input name="username" placeholder="Username" type="text" autoComplete="off"/>
             </div>
         </div>
           <div className="field">
