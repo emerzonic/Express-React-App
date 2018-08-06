@@ -5,7 +5,7 @@
 
 .home-container> .ui.segment, .ui.segments .segment {
     font-size: 2rem;
-    padding: 15%; 
+    padding: 15% 5%; 
     background:transparent;
 }
 
@@ -13,17 +13,20 @@
     min-height: 1rem;
     font-size: 4rem;
     color:orangered;
+    letter-spacing: 0.2rem;
 }
 .home-container h2 {
     min-height: 1rem;
     font-size: 2rem;
     color:rgb(236, 236, 235);
+    letter-spacing: 0.3rem;
 }
 
 .home-container h3 {
     font-size: 1.28571429rem;
     margin-top: 0;
     color:rgb(202, 198, 198);
+    letter-spacing: 0.1rem;
 }
 
 .user-container> .ui.segment, .ui.segments .segment {
@@ -44,4 +47,8 @@
 
 .user-container> .ui.segment,{
     background-color:red;
+}
+
+.actions> .ui.button {
+    margin-top:1rem;
 }

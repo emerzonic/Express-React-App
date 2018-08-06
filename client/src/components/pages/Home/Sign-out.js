@@ -7,13 +7,14 @@
      
     const customStyles = {
       content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)',
-        padding               : '5% 10%'
+        top         : '50%',
+        left        : '50%',
+        right       : 'auto',
+        bottom      : 'auto',
+        marginRight : '-50%',
+        transform   : 'translate(-50%, -50%)',
+        padding     : '5% 10%',
+        color       :'red'
       }
     };
  
@@ -53,8 +54,7 @@
             onRequestClose={this.closeModal}
             style={customStyles}
           >
-            <h2 ref={subtitle => this.subtitle = subtitle}>Attention!</h2>
-           
+            <h2 ref={subtitle => this.subtitle = subtitle}>Please Confirm!</h2>
             <div>
             <div className="image content">
             <div className="description">
@@ -63,11 +63,11 @@
           </div>
           <div className="actions">
             <div data-id="deny" className="ui black deny button"  onClick={this.closeModal}>
-            No, Return
+            Return
             </div>
-            <div data-id="positive" className="ui positive right labeled icon button" onClick={this.closeModal}>
+            <div data-id="positive" className="ui positive right button" onClick={this.closeModal}>
              Click to Signout
-              <i className="checkmark icon"></i>
+        
             </div>
           </div>
           </div>

@@ -51,7 +51,7 @@ class Articles extends Component {
                                 <input type="hidden" name="body" value={article.snippet}/>
                                 <input type="hidden" name="link" value={article.web_url}/>
                                 {currentUser?
-                                <button type="submit" className="ui inverted right floated secondary button">Save</button>:''}
+                                <button type="submit" className="ui inverted right floated green button">Save</button>:''}
                               <a href={article.web_url} className="ui inverted right floated primary button" target="_blank" rel="noopener">Link</a>
                               </form>
                             </div>
