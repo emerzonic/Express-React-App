@@ -4,19 +4,21 @@ var request = require('request');
 var Article = require('../models/Article');
 var User = require('../models/User');
 var key = process.env.REACT_APP_NYT_KEY;
+console.log('server line 7 key  ' + key)
+
 
 
 //==============================================
 //Route to get NYT articles via API
 //==============================================
 router.get('/API/search/:term/:start/:end', (req, res) => {
+    console.log('server line 15 key  ' + key)
     var params = {
         'api-key': key,
         'q': req.params.term,
         'start_date': req.params.start,
         'end_date': req.params.end
     }
-    console.log('data line 19 params  ' + params)
     request.get({
         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
         qs: params,

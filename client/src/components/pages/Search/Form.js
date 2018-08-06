@@ -12,7 +12,6 @@ class Form extends Component {
                 start_date:this.refs.start_date.value,
                 end_date:this.refs.end_date.value
             }
-            console.log('data 15 form '+data);
             this.props.handleSubmit(data)
         }
     }

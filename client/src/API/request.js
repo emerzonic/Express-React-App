@@ -15,7 +15,6 @@ export default {
 
   // Gets articles from the NYT API
   searchArticles: function (data) {
-    console.log('data line 18 request  ' + data)
     let q = formatter(data).q;
     let begin_date = formatter(data).begin_date;
     let end_date = formatter(data).end_date;
