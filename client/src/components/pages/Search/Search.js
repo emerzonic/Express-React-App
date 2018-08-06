@@ -19,8 +19,10 @@ class Search extends Component {
 
         //Fires when the search form is submitted
         this.handleSubmit = (data) => {
+            console.log('data line 22 search  ' + data)
             //Takes the submitted data and pass it over to the API module
             API.searchArticles(data).then(res => {
+                console.log('data line 25 res  ' + res.data)
                 if(res.data.response.docs){
                 // Set the state with the results from the search
                 this.setState({

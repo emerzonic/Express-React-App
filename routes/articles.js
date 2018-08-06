@@ -16,11 +16,13 @@ router.get('/API/search/:term/:start/:end', (req, res) => {
         'start_date': req.params.start,
         'end_date': req.params.end
     }
+    console.log('data line 19 params  ' + params)
     request.get({
         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
         qs: params,
     }, (err, response, body) => {
         body = JSON.parse(body);
+        console.log('data line 25 body  ' + body)
         res.json(body);
     });
 });
