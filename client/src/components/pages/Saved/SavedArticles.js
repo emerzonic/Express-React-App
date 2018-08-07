@@ -23,7 +23,7 @@ class SavedArticles extends Component {
                         <img src={article.img} alt="article"/>
                     </div>
                     <div className="content">
-                    <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.title}</a>
+                    <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.headline}</a>
                         <div className="meta">
                         <span className="cinema">Published {article.date}</span>
                         </div>
