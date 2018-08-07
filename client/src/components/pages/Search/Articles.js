@@ -17,8 +17,9 @@ class Articles extends Component {
       //Pass the article over to the Search component
       this.props.handleSave(article);
       }
+   
     }
-
+        
       render() {
         //Get current state of the articles and current user
         let loadedArticle = this.props.articles;

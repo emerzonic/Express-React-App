@@ -25,7 +25,10 @@ class Search extends Component {
                 // Set the state with the results from the search
                 this.setState({
                     articles: res.data.response.docs
-                })}else{
+                })
+                console.log(this.state.articles)
+
+            }else{
                     return;
                 }
             })
@@ -44,6 +47,7 @@ class Search extends Component {
                 this.setState({
                     articles: remainingArticles
                 });
+               
             })
         }
     }
