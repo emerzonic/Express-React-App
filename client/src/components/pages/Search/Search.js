@@ -26,10 +26,8 @@ class Search extends Component {
                 this.setState({
                     articles: res.data.response.docs
                 })
-                console.log(this.state.articles)
-
             }else{
-                    return;
+                return;
                 }
             })
         }
@@ -62,7 +60,7 @@ class Search extends Component {
                     <Articles articles={this.state.articles} 
                               handleSave={this.handleSave} 
                               info={this.state.articles.length > 0?
-                            "Your Search Results.":"Search an article to get started!"}
+                                "Your Search Results.":"Search an article to get started!"}
                     />
                 </div>
                 <div className='spacer'></div>
