@@ -56,3 +56,7 @@
 p:first-child {
     font-size: 0.8rem;
 }
+
+.fixed span {
+    font-size: 0.8rem;
+}

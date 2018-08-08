@@ -39,4 +39,8 @@
     border-radius: 50px;
 }
 
+p:first-child {
+    font-size: 1.2rem;
+}
+
 

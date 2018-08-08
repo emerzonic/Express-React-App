@@ -32,7 +32,9 @@ router.get('/API/search/:term/:start/:end', (req, res) => {
 //==============================================
 router.post('/save_articles/:userId', (req, res) => {
     User.findById(req.params.userId, (err, user) => {
-        if (err) {} else {
+        if (err) {
+            console.log(err);
+        } else {
             Article.create(req.body, (err, article) => {
                 if (err) {
                     console.log(err);
@@ -55,7 +57,12 @@ router.get("/articles/saved/:userId", (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.json(user.articles)
+            if (!user.articles.length) {
+                return res.end()
+            } else {
+                res.json(user.articles)
+            }
+
         }
     });
 });
