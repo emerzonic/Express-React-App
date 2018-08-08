@@ -15,27 +15,33 @@ class Login extends Component {
             username: e.target.username.value,
             password: e.target.password.value
         };;
-      this.props.handleUserSignin(preciousUser);
+        if(!preciousUser.username.length ||!preciousUser.password.length){ 
+            return;
+        }else{
+            this.props.handleUserSignin(preciousUser);
+        }
       }
 }
+
 render() {
     return (
-        <form className="ui form" onSubmit={this.handleSubmit}>
+        <form id="signinForm" className="ui form" onSubmit={this.handleSubmit}>
         <h3>Sign In</h3>
         <div className="ui divider"></div>
-        <div className="field">
+        <div className="required field">
         <label>Username</label>
-            <div className="ui icon input"> <i className="user icon"></i>
+            <div className="ui left icon input"> <i className="user icon"></i>
             <input name="username" placeholder="Username" type="text" autoComplete="off"/>
             </div>
         </div>
-          <div className="field">
+          <div className="required field">
             <label>Password</label>
-            <div className="ui icon input"><i className="lock icon"></i>
+            <div className="ui left icon input"><i className="lock icon"></i>
           <input type="password" name="password" placeholder="Password"/>
         </div>
           </div>
         <button type="submit" className="ui orange button">Submit</button>
+        <div className="ui error message"></div>
       </form>
 
     );

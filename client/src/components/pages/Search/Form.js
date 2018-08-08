@@ -12,17 +12,22 @@ class Form extends Component {
                 start_date:this.refs.start_date.value,
                 end_date:this.refs.end_date.value
             }
-            this.props.handleSubmit(data)
+            if(!data.term.length ||!data.start_date.length ||!data.end_date.length){ 
+                return;
+            }else{
+                console.log(data)
+                this.props.handleSubmit(data)
+            }
         }
     }
     render() { 
         return ( 
             <div className="ui segment form-Segment">
-            <form className="ui form" onSubmit={this.onSubmit}>
+            <form className="ui form" id="searchForm" onSubmit={this.onSubmit}>
                 <h4 className="ui dividing header">Search Articles</h4>
                 <div className="field">
                      <label>Search Term</label>
-                    <div className="field">
+                    <div className="required field">
                         <div className="ui right action left icon input">
                             <i className="search icon"></i>
                             <input type="text" name="term" placeholder="Enter search term" ref="term"/>
@@ -32,7 +37,7 @@ class Form extends Component {
                 <div className="field">
                      <label>Date Range</label>
                         <div className="two fields">
-                            <div className="field">
+                            <div className="required field">
                                 <div className="ui labeled input">
                                     <div className="ui label">
                                          Start Date
@@ -40,7 +45,7 @@ class Form extends Component {
                                     <input type="date" name="start_date" ref="start_date"/>
                                 </div>
                             </div>
-                            <div className="field">
+                            <div className="required field">
                             <div className="ui labeled input">
                             <div className="ui label">
                                  End Date
@@ -51,6 +56,7 @@ class Form extends Component {
                         </div>
                 </div>
                 <button type="submit"  className="ui inverted orange button"> Submit</button>
+                <div className="ui error message"></div>
             </form>
         </div> 
      );
