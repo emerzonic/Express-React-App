@@ -5,7 +5,7 @@ $(function validate() {
     $('#signinForm, #signupForm, #searchForm')
       .form({
         fields: {
-          term: {
+          text: {
             identifier: 'term',
             rules: [{
               type: 'empty', //field is not empty
@@ -14,29 +14,11 @@ $(function validate() {
               type: 'minLength[3]', //not less than 3 characters
             }]
           },
-          term: {
-            identifier: 'term',
+          first_name: {
+            identifier: 'fullName',
             rules: [{
               type: 'empty', //field is not empty
-              prompt: 'Please enter a valid search term before submitting.'
-            }, {
-              type: 'minLength[3]', //not less than 3 characters
-            }]
-          },
-          start_date: {
-            identifier: 'start_date',
-            rules: [{
-              type: 'empty', //field is not empty
-              prompt: 'Please select a start date.'
-            }, {
-              type: 'minLength[3]', //not less than 3 characters
-            }]
-          },
-          end_date: {
-            identifier: 'end_date',
-            rules: [{
-              type: 'empty', //field is not empty
-              prompt: 'Please select a end date.'
+              prompt: 'Full name is required.'
             }]
           },
           username: {
