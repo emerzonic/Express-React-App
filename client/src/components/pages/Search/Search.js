@@ -40,7 +40,7 @@ class Search extends Component {
             API.saveArticle(savedArticle, userid).then(() => {
                 //After save is completed, filter the current articles list and leave out any article that matches the title of the saved article
                 let remainingArticles = this.state.articles.filter(article => 
-                    article.headline.print_headline !== savedArticle.headline);
+                    article.headline.main !== savedArticle.headline);
                 //Set the state to the new list of articles
                 this.setState({
                     articles: remainingArticles
