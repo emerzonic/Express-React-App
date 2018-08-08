@@ -16,8 +16,7 @@ class Articles extends Component {
       };
       //Pass the article over to the Search component
       this.props.handleSave(article);
-      }
-   
+      }   
     }
         
       render() {
@@ -34,10 +33,13 @@ class Articles extends Component {
                     {this.props.articles.length > 0?this.props.articles.map((article,i) =>
                       <div className="item" key={i}>
                         <div className="image">
-                          <img src={"https://www.nytimes.com/"+article.multimedia[0].url} alt="article"/>
+                        <img src={article.multimedia[0] === undefined?
+                          "http://www.wolfgroupweb.com/en/wolfclub/168-about?showimage_bcy=article.gif": 
+                          "https://www.nytimes.com/"+article.multimedia[0].url
+                            } alt="article"/>
                         </div>
                         <div className="content">
-                          <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.headline.print_headline}</a>
+                          <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.headline.main}</a>
                             <div className="meta">
                               <span className="cinema">Published {article.pub_date}</span>
                             </div>
@@ -46,8 +48,10 @@ class Articles extends Component {
                           </div>
                           <div className="extra">
                               <form id={i} onSubmit={this.handleSubmit}>
-                                <input type="hidden" name="img" value={"https://www.nytimes.com/"+article.multimedia[0].url} />
-                                <input type="hidden" name="headline" value={article.headline.print_headline} />
+                                <input type="hidden" name="img" value={article.multimedia[0] === undefined?
+                                  "http://www.wolfgroupweb.com/en/wolfclub/168-about?showimage_bcy=article.gif": 
+                                  "https://www.nytimes.com/"+article.multimedia[0].url}/>
+                                <input type="hidden" name="headline" value={article.headline.main} />
                                 <input type="hidden" name="date" value={article.pub_date}/>
                                 <input type="hidden" name="body" value={article.snippet}/>
                                 <input type="hidden" name="link" value={article.web_url}/>
@@ -66,4 +70,7 @@ class Articles extends Component {
             }
 
 export default Articles;
+
+
+
 

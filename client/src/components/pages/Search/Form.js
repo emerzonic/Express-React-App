@@ -15,7 +15,6 @@ class Form extends Component {
             if(!data.term.length ||!data.start_date.length ||!data.end_date.length){ 
                 return;
             }else{
-                console.log(data)
                 this.props.handleSubmit(data)
             }
         }
