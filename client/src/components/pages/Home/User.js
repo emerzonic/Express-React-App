@@ -80,7 +80,7 @@ class User extends Component {
             this.props.history.push('/');
             }else{
             //call
-            this.props.history.push('/search');
+            this.props.history.goBack();
             }
         }
 
