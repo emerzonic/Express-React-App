@@ -1,5 +1,5 @@
 export default function formatter(data) {
-    let term = data.term;
+    let term = data.term.trim();
     let begin_date = data.start_date.replace("-", "").replace("-", "");
     let end_date = data.end_date.replace("-", "").replace("-", "");
     return {
