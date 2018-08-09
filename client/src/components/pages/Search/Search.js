@@ -14,7 +14,7 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            articles: [],
+            articles: JSON.parse(localStorage.getItem('articles')) || [],
         }
 
         //Fires when the search form is submitted
@@ -22,9 +22,12 @@ class Search extends Component {
             //Takes the submitted data and pass it over to the API module
             API.searchArticles(data).then(res => {
                 if(res.data.response){
-                // Set the state with the results from the search
+                //if we get valid response, clear storage and replace with new search
+                localStorage.removeItem('articles')
+                localStorage.setItem('articles', JSON.stringify(res.data.response.docs))
+                // Set the state with the results from the new search
                 this.setState({
-                    articles: res.data.response.docs
+                    articles: JSON.parse(localStorage.getItem('articles'))
                 })
             }else{
                 return;
