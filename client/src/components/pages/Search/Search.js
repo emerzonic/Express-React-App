@@ -43,8 +43,9 @@ class Search extends Component {
                 //After save is completed, filter the current articles list and leave out any article that matches the title of the saved article
                 let remainingArticles = this.state.articles.filter(article => 
                     article.headline.main !== savedArticle.headline);
+                    //replace storage with remaining articles
                     localStorage.setItem('erapp_articles', JSON.stringify(remainingArticles))
-                //Set the state to the new list of articles
+                //Set the state to the update storage articles
                 this.setState({
                     articles: JSON.parse(localStorage.getItem('erapp_articles'))
                 });
