@@ -25,13 +25,13 @@ class User extends Component {
             // Takes the submitted data and pass it over to the API module
             API.sendNewUserData(newUser).then(res => {
                 if (res.data.username) {
-                    localStorage.setItem('user', res.data.username)
-                    localStorage.setItem('id', res.data._id)
+                    localStorage.setItem('erapp_user', res.data.username)
+                    localStorage.setItem('erapp_id', res.data._id)
                     // Set the state with the results from the search
                     this.setState({
                         user: {
                             id: res.data._id,
-                            username: localStorage.getItem('user')
+                            username: localStorage.getItem('erapp_user')
                         }
                     })
                     //Redirect the user to search page
@@ -51,13 +51,13 @@ class User extends Component {
                 //If sign in is success
                 if (res.data.username) {
                     //Store user info
-                    localStorage.setItem('user', res.data.username)
-                    localStorage.setItem('id', res.data._id)
+                    localStorage.setItem('erapp_user', res.data.username)
+                    localStorage.setItem('erapp_id', res.data._id)
                     // Set the state with the results from the search
                     this.setState({
                         user: {
                             id: res.data._id,
-                            username: localStorage.getItem('user')
+                            username: localStorage.getItem('erapp_user')
                         }
                     })
                     //Redirect to search page
@@ -75,7 +75,9 @@ class User extends Component {
             //If the user action is positive
             if(action === "positive"){
             //clear user data from storage
-            localStorage.clear();
+            localStorage.removeItem('erapp_id');
+            localStorage.removeItem('erapp_user');
+            localStorage.removeItem('erapp_articles');
             //Redirect user to home page
             this.props.history.push('/');
             }else{

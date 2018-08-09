@@ -9,8 +9,8 @@ const Nav = () => (
             <Link  className="ui item" to={"/"}><i className="home icon"></i> Home</Link>
             <div className="right menu">
                 <Link  className="ui item" to={"/search"}><i className="search icon"></i> Search</Link>
-                <Link  className="ui item" to={localStorage.getItem('user')?"/saved":"/signin"}> <i className="save icon"></i> Saved</Link>
-                <span  className="ui item">{localStorage.getItem('user')?<i className="user circle icon"></i>:''} {localStorage.getItem('user')}</span>
+                <Link  className="ui item" to={localStorage.getItem('erapp_user')?"/saved":"/signin"}> <i className="save icon"></i> Saved</Link>
+                <span  className="ui item">{localStorage.getItem('erapp_user')?<i className="user circle icon"></i>:''} {localStorage.getItem('erapp_user')}</span>
             </div>
         </div>
     </div>

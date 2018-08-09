@@ -22,7 +22,7 @@ class Articles extends Component {
       render() {
         //Get current state of the articles and current user
         let loadedArticle = this.props.articles;
-        let currentUser = localStorage.getItem('user');
+        let currentUser = localStorage.getItem('erapp_user');
         return (
                 <div className="ui segment">
                   <h3>{this.props.info} { loadedArticle.length && !currentUser?"Please sign in to save your favorite articles.":

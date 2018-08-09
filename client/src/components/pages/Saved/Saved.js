@@ -31,7 +31,7 @@ class Saved extends Component {
     }
 
     getArticles = () => {
-        let userid = localStorage.getItem('id')
+        let userid = localStorage.getItem('erapp_id')
         API.getSavedArticles(userid)
             .then(res => {
                 this.setState({

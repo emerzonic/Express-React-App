@@ -10,7 +10,7 @@ const Header = () => (
         database, Express js for server-side routing, React Js for client-side rendering 
         and Node js framework. Search for and save articles of interest.</h3>
         <div className="ui inverted divider"></div>
-        {localStorage.getItem('user')?
+        {localStorage.getItem('erapp_user')?
         <Link className="huge ui orange button" to={"/signout"}>Sign Out</Link> :
         <div>
             <Link className="huge ui orange button" to={"/signin"}>Sign In</Link>
