@@ -1,6 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
 import './save.css';
+import Moment from 'moment';
+
 
 class SavedArticles extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class SavedArticles extends Component {
                     <div className="content">
                     <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.headline}</a>
                         <div className="meta">
-                        <span className="cinema">Published {article.date}</span>
+                        <span className="cinema">Published {Moment(article.date).format('llll')}</span>
                         </div>
                     <div className="description">
                         <p>{article.body}</p>

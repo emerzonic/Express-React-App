@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import './search.css';
+import Moment from 'moment';
 class Articles extends Component {
   constructor(props) {
       super(props);
@@ -41,7 +42,7 @@ class Articles extends Component {
                         <div className="content">
                           <a href={article.web_url} className="header" target="_blank" rel="noopener">{article.headline.main}</a>
                             <div className="meta">
-                              <span className="cinema">Published {article.pub_date}</span>
+                              <span className="cinema">Published {Moment(article.pub_date).format('llll')}</span>
                             </div>
                           <div className="description">
                               <p>{article.snippet}</p>
@@ -52,7 +53,7 @@ class Articles extends Component {
                                   "http://www.wolfgroupweb.com/en/wolfclub/168-about?showimage_bcy=article.gif": 
                                   "https://www.nytimes.com/"+article.multimedia[0].url}/>
                                 <input type="hidden" name="headline" value={article.headline.main} />
-                                <input type="hidden" name="date" value={article.pub_date}/>
+                                <input type="hidden" name="date" value={Moment(article.pub_date).format('llll')}/>
                                 <input type="hidden" name="body" value={article.snippet}/>
                                 <input type="hidden" name="link" value={article.web_url}/>
                                 {currentUser?
