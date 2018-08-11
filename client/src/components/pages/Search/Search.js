@@ -31,7 +31,7 @@ class Search extends Component {
             }else{
                 return;
                 }
-            })
+            }).catch(err => console.log(err));
         }
 
         //Fires when a user saves article to the database
@@ -50,7 +50,7 @@ class Search extends Component {
                     articles: JSON.parse(localStorage.getItem('erapp_articles'))
                 });
                
-            })
+            }).catch(err => console.log(err));
         }
     }
 
