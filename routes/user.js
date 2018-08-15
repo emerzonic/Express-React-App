@@ -3,7 +3,6 @@ var express = require('express');
 var User = require('../models/User');
 var router = express.Router();
 
-
 //=======================
 //User signup rouute
 //=======================
