@@ -6,7 +6,7 @@ LocalStrategy = require("passport-local"),
   mongoose = require('mongoose'),
   passport = require('passport'),
   user = require('./routes/user'),
-  User = require('./models/User');
+  User = require('./models/User'),
   cors = require('cors');
 
 const app = express();
