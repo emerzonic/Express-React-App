@@ -10,4 +10,4 @@ This is a MERN application built using MongoBD for database, Express js for serv
 
 * Users can also delete an article from their saved articles. When a delete request is made by the user for a particular article, the articlue's id is sent via a delete request that uses mongoose's findByIdAndRemove method to delete the article.
 
-### Start search for your favorite articles [express-react-js-app.herokuapp.com](https://express-react-js-app.herokuapp.com/)
+### Start searching for your favorite articles [express-react-js-app.herokuapp.com](https://express-react-js-app.herokuapp.com/)
