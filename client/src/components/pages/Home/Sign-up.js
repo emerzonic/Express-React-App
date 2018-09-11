@@ -5,7 +5,6 @@ import {
 
 import './home.css';
 
-// let style = { display: 'block !important'};
 
 class SignUP extends Component {
     constructor(props) {
@@ -23,7 +22,6 @@ class SignUP extends Component {
             if(!newUser.fullName.length ||!newUser.password.length ||!newUser.password.length){ 
               return;
           }else{
-            console.log(newUser)
               this.props.handleUserSignup(newUser);
           }
           }
