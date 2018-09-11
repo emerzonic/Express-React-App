@@ -22,22 +22,18 @@ class User extends Component {
 
         //Fires when the search form is submitted
         this.handleUserSignup = (newUser) => {
-            // Takes the submitted data and pass it over to the API module
             API.sendNewUserData(newUser).then(res => {
                 if (res.data.username) {
                     localStorage.setItem('erapp_user', res.data.username)
                     localStorage.setItem('erapp_id', res.data._id)
-                    // Set the state with the results from the search
                     this.setState({
                         user: {
                             id: res.data._id,
                             username: localStorage.getItem('erapp_user')
                         }
                     })
-                    //Redirect the user to search page
                     this.props.history.push('/search');
                 } else {
-                    //If fails stay on sign up page
                     this.props.history.push('/signup');
                 }
             }).catch(err => console.log(err));
@@ -46,24 +42,18 @@ class User extends Component {
 
         //Fires when the search form is submitted
         this.handleUserSignin = (preciousUser) => {
-            // Takes the submitted data and pass it over to the API module
             API.sendPreviousUserData(preciousUser).then(res => {
-                //If sign in is success
                 if (res.data.username) {
-                    //Store user info
                     localStorage.setItem('erapp_user', res.data.username)
                     localStorage.setItem('erapp_id', res.data._id)
-                    // Set the state with the results from the search
                     this.setState({
                         user: {
                             id: res.data._id,
                             username: localStorage.getItem('erapp_user')
                         }
                     })
-                    //Redirect to search page
                     this.props.history.push('/search');
                 } else {
-                    //If sign in fails, stay on ligin
                     this.props.history.push('/login');
                 }
             }).catch(err => console.log(err));
@@ -72,16 +62,12 @@ class User extends Component {
 
         //This method handle user signout
         this.handleUserSignout= (action) => {
-            //If the user action is positive
             if(action === "positive"){
-            //clear user data from storage
             localStorage.removeItem('erapp_id');
             localStorage.removeItem('erapp_user');
             localStorage.removeItem('erapp_articles');
-            //Redirect user to home page
             this.props.history.push('/');
             }else{
-            //call
             this.props.history.goBack();
             }
         }
